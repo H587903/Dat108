@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -19,23 +20,16 @@
 			<th align="left">Mobil</th>
 		</tr>
 		
+	
+	<c:forEach items="${Paameldte}" var="p">
+		<tr ${mobil == p.mobil ? 'bgcolor="#56ff38"' : ''}>
+			<td>${p.kjonn}</td>
+			<td>${p.fornavn} ${p.etternavn}</td>
+			<td>${p.mobil}</td>
+		</tr>
+	</c:forEach>
 
-		
-		<tr bgcolor="#aaffaa">
-			<td align="center">&#9792;</td>
-			<td>Anne Annesen</td>
-			<td>445 54 455</td>
-		</tr>
-		<tr bgcolor="#ffffff">
-			<td align="center">&#9794;</td>
-			<td>Arne Arnesen</td>
-			<td>901 23 456</td>
-		</tr>
-		<tr bgcolor="#ffffff">
-			<td align="center">&#9794;</td>
-			<td>Per Viskeler</td>
-			<td>112 23 344</td>
-		</tr>
+
 	</table>
 	<p>
 		<a href="Loggut">Ferdig</a>

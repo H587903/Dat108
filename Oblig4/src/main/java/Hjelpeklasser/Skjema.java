@@ -2,6 +2,7 @@ package Hjelpeklasser;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 public class Skjema {
 	
 	private String fornavn;
@@ -25,6 +26,7 @@ public class Skjema {
 		this.passordRepetert = request.getParameter("passordRepetert");
 		this.kjonn = request.getParameter("kjonn");
 	}
+	
 	
 	public boolean isAllInputGyldig() {
 		return isFornavnGyldig() && isEtternavnGyldig() && isMobilGyldig() &&
@@ -131,5 +133,9 @@ public class Skjema {
 
 	public String getKjonnFeil() {
 		return kjonnFeil;
+	}
+	
+	public void setMobilFeil(String mobilFeil) {
+		this.mobilFeil = mobilFeil;
 	}
 }

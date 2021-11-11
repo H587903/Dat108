@@ -46,8 +46,10 @@
 			<div class="pure-control-group">
 				<label for="kjonn">Kjønn:</label> <input type="radio" name="kjonn"
 					value="mann"
+					${Paameldingsskjema.kjonn == 'mann' ? 'checked' : ''}
 					 />mann
 				<input type="radio" name="kjonn" value="kvinne"
+					${Paameldingsskjema.kjonn == 'kvinne' ? 'checked' : ''}
 					 />kvinne
 				<font color="red">${Paameldingsskjema.kjonnFeil}</font>
 			</div>

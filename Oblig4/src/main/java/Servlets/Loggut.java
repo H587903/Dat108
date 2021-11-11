@@ -14,6 +14,9 @@ public class Loggut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.getSession(false).invalidate();
+		
 		request.getRequestDispatcher("/WEB-INF/jsp/ferdig.jsp").forward(request, response);
 	}
 }
