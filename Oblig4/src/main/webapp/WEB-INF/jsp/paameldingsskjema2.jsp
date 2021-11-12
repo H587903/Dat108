@@ -11,7 +11,9 @@
   </head>
   <body>
     <h2>Påmelding</h2>    
-
+	
+	<a href="Login">Tilbake</a>
+	
       <form method="post">
         <fieldset>
           <label for="fornavn">Fornavn:</label>
