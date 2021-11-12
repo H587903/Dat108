@@ -19,12 +19,21 @@ public class Skjema {
 	private String kjonnFeil;
 	
 	public Skjema(HttpServletRequest request) {
-		this.fornavn = request.getParameter("fornavn");
-		this.etternavn = request.getParameter("etternavn");
-		this.mobil = request.getParameter("mobil");
-		this.passord = request.getParameter("passord");
-		this.passordRepetert = request.getParameter("passordRepetert");
+		this.fornavn = escapeHtml(request.getParameter("fornavn"));
+		this.etternavn = escapeHtml(request.getParameter("etternavn"));
+		this.mobil = escapeHtml(request.getParameter("mobil"));
+		this.passord = escapeHtml(request.getParameter("passord"));
+		this.passordRepetert = escapeHtml(request.getParameter("passordRepetert"));
 		this.kjonn = request.getParameter("kjonn");
+	}
+	
+	private String escapeHtml(String s) {
+		String resultat = s;
+		resultat = resultat.replaceAll("<", "&lt;");
+		resultat = resultat.replaceAll(">", "&gt;");
+		resultat = resultat.replaceAll("\"", "&quot;");
+		//...
+		return resultat;
 	}
 	
 	

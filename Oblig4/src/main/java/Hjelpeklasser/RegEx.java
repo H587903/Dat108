@@ -15,7 +15,6 @@ public class RegEx {
 	}
 	
 	public static boolean isValidPassord(String s) {
-		return s != null && s.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,20}$");
+		return s != null && s.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,20}$"); //Må inneholde tal, små og store bokstavar og vere mellom 8 og 20 teikn langt
 				}
-
 }

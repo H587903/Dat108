@@ -41,8 +41,8 @@
           <label for="passord">Passord:</label>
           <input type="password" name="passord" id="passord" value="${Paameldingsskjema.passord}"
               placeholder="Velg et passord"
-              title="Passordet må bestå av minst 8 tegn, men bør ha minst 14 tegn."
-              required pattern=".{8,}"
+              title="Passordet må bestå av minst ein stor og liten bokstav, eit tall, og må ha minst 8 tegn, men bør ha minst 14 tegn."
+              required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}"
            />
          <span class="melding">${Paameldingsskjema.passordFeil}</span>
 

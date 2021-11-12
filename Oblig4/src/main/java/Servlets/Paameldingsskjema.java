@@ -25,7 +25,8 @@ public class Paameldingsskjema extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.getRequestDispatcher("WEB-INF/jsp/paameldingsskjema2.jsp").forward(request, response);
+		//request.getRequestDispatcher("WEB-INF/jsp/paameldingsskjema.jsp").forward(request, response); //Påmeldingsskjema med validasjon på tjenerside
+		request.getRequestDispatcher("WEB-INF/jsp/paameldingsskjema2.jsp").forward(request, response); //Påmeldingsskjema2 med validasjon på klientside
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -36,16 +37,16 @@ public class Paameldingsskjema extends HttpServlet {
 		
 		if (skjema.isAllInputGyldig()) { // Succsessful påmelding
 			
-			if (paameldteDAO.sjekkMobilFinst(skjema.getMobil())) { //Sjekke om mobil allerede er registrert
+			if (paameldteDAO.sjekkMobilFinst(skjema.getMobil())) { 	//Sjekke om mobil allerede er registrert når all input er gyldig
 				skjema.feilmeldinger();
 				skjema.setMobilFeil("Mobilnummer er allerede registrert.");
 
 				request.getSession().setAttribute("Paameldingsskjema", skjema);
-				response.sendRedirect("Paameldingsskjema");
+				response.sendRedirect("Paameldingsskjema");	//redirect tilbake med feilmeldinger om mobil allerede er registrert
 				return;
 			}
 
-			Paameldte paameldte = new Paameldte(request); // Hentar verdi frå validert inputfelt
+			Paameldte paameldte = new Paameldte(request); // Hentar verdi frå validerte inputfelt
 			paameldteDAO.skrivTilDatabase(paameldte); // Tar verdiane og skriv til database
 
 			HttpSession session = request.getSession(false);

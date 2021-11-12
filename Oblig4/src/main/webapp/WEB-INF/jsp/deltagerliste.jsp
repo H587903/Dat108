@@ -23,7 +23,7 @@
 	
 	<c:forEach items="${Paameldte}" var="p">
 		<tr ${mobil == p.mobil ? 'bgcolor="#56ff38"' : ''}>
-			<td>${p.kjonn}</td>
+			<td align="center">${p.kjonn == 'mann' ? '&#9794' : '&#9792'}</td>
 			<td>${p.fornavn} ${p.etternavn}</td>
 			<td>${p.mobil}</td>
 		</tr>
